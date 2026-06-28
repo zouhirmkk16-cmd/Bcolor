@@ -209,7 +209,7 @@
             flex-direction: row-reverse; 
         }
 
-        /* Target Bot Avatar Image Structure */
+        /* حماية الأفاتار وعمل Fallback */
         .bot-avatar {
             width: 36px;
             height: 36px;
@@ -219,13 +219,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: transparent;
+            background: var(--snap-yellow); /* الباڭراوند ديفولت يلا طارت الصورة */
+            position: relative;
         }
 
         .bot-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        /* أيقونة ديفولت كتبان تحت الصورة يلا الصورة مابغاتش تخدم */
+        .bot-avatar i {
+            color: #000000;
+            font-size: 16px;
+            position: absolute;
+            z-index: 1;
         }
 
         .msg-bubble {
@@ -473,12 +486,18 @@
 
         <div class="chat-history" id="chatWindow">
             <div class="chat-row ai-row" id="welcomeMsg">
-                <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
+                <div class="bot-avatar">
+                    <i class="fa-solid fa-battery-three-quarters"></i>
+                    <img src="./Logo 2.JPG" alt="" onerror="this.style.display='none'">
+                </div>
                 <div class="msg-bubble" id="welcomeText"></div>
             </div>
 
             <div class="chat-row ai-row hidden-row" id="typingBubble">
-                <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
+                <div class="bot-avatar">
+                    <i class="fa-solid fa-battery-three-quarters"></i>
+                    <img src="./Logo 2.JPG" alt="" onerror="this.style.display='none'">
+                </div>
                 <div class="msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>
             </div>
         </div>
@@ -600,7 +619,10 @@
                     const row = document.createElement('div');
                     row.className = 'chat-row ai-row';
                     row.innerHTML = `
-                        <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
+                        <div class="bot-avatar">
+                            <i class="fa-solid fa-battery-three-quarters"></i>
+                            <img src="./Logo 2.JPG" alt="" onerror="this.style.display='none'">
+                        </div>
                         <div class="msg-bubble" id="${nextId}"></div>
                     `;
                     chatWindow.appendChild(row);
@@ -699,7 +721,10 @@
                     const row = document.createElement('div');
                     row.className = 'chat-row ai-row';
                     row.innerHTML = `
-                        <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
+                        <div class="bot-avatar">
+                            <i class="fa-solid fa-battery-three-quarters"></i>
+                            <img src="./Logo 2.JPG" alt="" onerror="this.style.display='none'">
+                        </div>
                         <div class="msg-bubble" id="${nextId}"></div>
                     `;
                     chatWindow.appendChild(row);
@@ -747,7 +772,10 @@
                             const row = document.createElement('div');
                             row.className = 'chat-row ai-row';
                             row.innerHTML = `
-                                <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
+                                <div class="bot-avatar">
+                                    <i class="fa-solid fa-battery-three-quarters"></i>
+                                    <img src="./Logo 2.JPG" alt="" onerror="this.style.display='none'">
+                                </div>
                                 <div class="msg-bubble" id="${finalCardId}"></div>
                             `;
                             chatWindow.appendChild(row);
