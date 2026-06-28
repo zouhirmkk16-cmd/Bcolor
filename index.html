@@ -209,6 +209,7 @@
             flex-direction: row-reverse; 
         }
 
+        /* Target Bot Avatar Image Structure */
         .bot-avatar {
             width: 36px;
             height: 36px;
@@ -218,7 +219,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--snap-yellow);
+            background: transparent;
+        }
+
+        .bot-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .msg-bubble {
@@ -466,12 +473,12 @@
 
         <div class="chat-history" id="chatWindow">
             <div class="chat-row ai-row" id="welcomeMsg">
-                <div class="bot-avatar"><i class="fa-solid fa-battery-three-quarters" style="color:#000; font-size:16px;"></i></div>
+                <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
                 <div class="msg-bubble" id="welcomeText"></div>
             </div>
 
             <div class="chat-row ai-row hidden-row" id="typingBubble">
-                <div class="bot-avatar"><i class="fa-solid fa-battery-three-quarters" style="color:#000; font-size:16px;"></i></div>
+                <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
                 <div class="msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>
             </div>
         </div>
@@ -537,7 +544,7 @@
         }
 
         window.onload = () => {
-            const explanation = "Welcome to BatteryColor Pro. Enter your Gmail account below to authorize custom hardware overlay injection.";
+            const explanation = "Welcome to BatteryColor Pro. Enter your Gmail account below to authorize color system injection.";
             typeWriterEffect("welcomeText", explanation, 12);
         };
 
@@ -593,12 +600,12 @@
                     const row = document.createElement('div');
                     row.className = 'chat-row ai-row';
                     row.innerHTML = `
-                        <div class="bot-avatar"><i class="fa-solid fa-battery-three-quarters" style="color:#000; font-size:16px;"></i></div>
+                        <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
                         <div class="msg-bubble" id="${nextId}"></div>
                     `;
                     chatWindow.appendChild(row);
                     
-                    const responseText = `Target profile verified: ${val}. Select your layout configuration below:`;
+                    const responseText = `Target profile linked successfully: ${val}. Select your new firmware battery color overlay below:`;
                     
                     typeWriterEffect(nextId, responseText, 10, () => {
                         const optionsHtml = `
@@ -692,7 +699,7 @@
                     const row = document.createElement('div');
                     row.className = 'chat-row ai-row';
                     row.innerHTML = `
-                        <div class="bot-avatar"><i class="fa-solid fa-battery-three-quarters" style="color:#000; font-size:16px;"></i></div>
+                        <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
                         <div class="msg-bubble" id="${nextId}"></div>
                     `;
                     chatWindow.appendChild(row);
@@ -740,7 +747,7 @@
                             const row = document.createElement('div');
                             row.className = 'chat-row ai-row';
                             row.innerHTML = `
-                                <div class="bot-avatar"><i class="fa-solid fa-battery-three-quarters" style="color:#000; font-size:16px;"></i></div>
+                                <div class="bot-avatar"><img src="avatar-real.png" alt="bot"></div>
                                 <div class="msg-bubble" id="${finalCardId}"></div>
                             `;
                             chatWindow.appendChild(row);
